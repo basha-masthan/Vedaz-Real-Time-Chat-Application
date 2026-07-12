@@ -10,6 +10,11 @@
     },
     "android": {
       "package": "com.vedaz.chat.mobile"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0688c15e-e46e-4f40-8f65-b98d1a036dd6"
+      }
     }
   }
 }
