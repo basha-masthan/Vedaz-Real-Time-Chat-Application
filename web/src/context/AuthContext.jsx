@@ -7,7 +7,15 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const BACKEND_BASE = import.meta.env.VITE_BACKEND_URL || (import.meta.env.PROD ? 'https://vedaz-real-time-chat-application.onrender.com' : 'http://localhost:5000');
+  const getBackendUrl = () => {
+    const envUrl = import.meta.env.VITE_BACKEND_URL;
+    if (envUrl && !envUrl.includes('localhost')) return envUrl;
+    if (typeof window !== 'undefined' && window.location && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      return 'https://vedaz-real-time-chat-application.onrender.com';
+    }
+    return envUrl || 'http://localhost:5000';
+  };
+  const BACKEND_BASE = getBackendUrl();
   const API_URL = `${BACKEND_BASE}/api/auth`;
 
   useEffect(() => {
