@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const BACKEND_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+  const BACKEND_BASE = import.meta.env.VITE_BACKEND_URL || (import.meta.env.PROD ? 'https://vedaz-real-time-chat-application.onrender.com' : 'http://localhost:5000');
   const API_URL = `${BACKEND_BASE}/api/auth`;
 
   useEffect(() => {

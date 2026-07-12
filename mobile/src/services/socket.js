@@ -1,8 +1,6 @@
 import { io } from 'socket.io-client';
 
-// Note: For Android emulator use 'http://10.0.2.2:5000', for iOS simulator or local web use 'http://localhost:5000'
-// Change to your PC's local IP (e.g. 'http://192.168.1.X:5000') when testing on real physical devices via Expo Go!
-export const SOCKET_URL = 'http://localhost:5000';
+export const SOCKET_URL = 'https://vedaz-real-time-chat-application.onrender.com';
 
 let socket = null;
 
