@@ -12,7 +12,7 @@ export const SocketProvider = ({ children }) => {
   const [typingUsers, setTypingUsers] = useState({}); // { roomName: [username1, username2] }
   const socketRef = useRef(null);
 
-  const SOCKET_URL = 'http://localhost:5000';
+  const SOCKET_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
   useEffect(() => {
     if (!currentUser) {

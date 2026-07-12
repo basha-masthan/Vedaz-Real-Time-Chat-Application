@@ -7,7 +7,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_URL = 'http://localhost:5000/api/auth';
+  const BACKEND_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+  const API_URL = `${BACKEND_BASE}/api/auth`;
 
   useEffect(() => {
     // Check local storage for persisted user session on refresh

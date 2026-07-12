@@ -26,7 +26,8 @@ const AppContent = () => {
   const [unreadCounts, setUnreadCounts] = useState({});
   const [lastMessages, setLastMessages] = useState({});
 
-  const API_URL = 'http://localhost:5000/api/messages';
+  const BACKEND_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+  const API_URL = `${BACKEND_BASE}/api/messages`;
 
   // Clear unread count when opening a room/chat
   useEffect(() => {
